@@ -2,11 +2,14 @@
 {
     public partial class App : Application
     {
-        public App()
+        public static EstudianteRepository repo { get; set; }
+        public App(EstudianteRepository estdusianteRepo)
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new Vistas.Login() );
+            repo = estdusianteRepo;
+            repo.AddEstudiantesLogin();
         }
     }
 }

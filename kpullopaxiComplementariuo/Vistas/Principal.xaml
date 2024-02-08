@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kpullopaxiComplementariuo.Vistas.Principal"
+             Title="Principal">
+    <VerticalStackLayout>
+        <Label 
+            Text="Lista Estudiantes"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Label x:Name="lblnombre" Text="Nombre" Grid.Row="0" Grid.Column="0"/>
+            <Entry x:Name="txtNombre" Placeholder="Ingrese Nombre"  Grid.Row="0" Grid.Column="1"/>
+            
+            <Label x:Name="lblapellido" Text="Apellido" Grid.Row="1" Grid.Column="0"/>
+            <Entry x:Name="txtApellido" Placeholder="Ingrese Apellido"  Grid.Row="1" Grid.Column="1"/>
+            
+            <Label x:Name="lblcurso" Text="Curso" Grid.Row="2" Grid.Column="0"/>
+            <Entry x:Name="txtVurso" Placeholder="Ingrese Curso"  Grid.Row="2" Grid.Column="1"/>
+            
+            <Label x:Name="lblparalelo" Text="Paralelo" Grid.Row="3" Grid.Column="0"/>
+            <Entry x:Name="txtParalelo" Placeholder="Ingrese Paralelo"  Grid.Row="3" Grid.Column="1"/>
+            
+            <Label x:Name="lblnota" Text="Nota" Grid.Row="4" Grid.Column="0"/>
+            <Entry x:Name="txtNota" Placeholder="Ingrese Nota Final "  Grid.Row="4" Grid.Column="1"/>
+
+            <Label x:Name="statusMessaje"
+                   TextColor="Red"
+                   Grid.Row="5"
+                   Grid.Column="0"
+                />
+        </Grid>
+        
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Nombre" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="Apellido" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="Curso" Grid.Row="0" Grid.Column="2"/>
+            <Label Text="Paralelo" Grid.Row="0" Grid.Column="3"/>
+            <Label Text="Nota" Grid.Row="0" Grid.Column="4"/>
+        </Grid>
+
+
+
+        <ListView x:Name="ListaEstudiantes" ItemSelected="ListaEstudiantes_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label x:Name="lblNombre" Text="{Binding Nombre}" Grid.Row="0" Grid.Column="0"/>
+                                <Label x:Name="lblApellido" Text="{Binding Apellido}" Grid.Row="0" Grid.Column="1"/>
+                                <Label x:Name="lblCurso" Text="{Binding Curso}" Grid.Row="0" Grid.Column="2"/>
+                                <Label x:Name="lblParalelo" Text="{Binding Paralelo}" Grid.Row="0" Grid.Column="3"/>
+                                <Label x:Name="lblNota" Text="{Binding NOTA_FINAL}" Grid.Row="0" Grid.Column="4"/>
+
+                            </Grid>
+
+
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="btnAgregar"
+                Text="Agregar"
+                Clicked="btnAgregar_Clicked"
+                />
+    </VerticalStackLayout>
+</ContentPage>
